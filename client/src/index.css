@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.star-item {
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+  -moz-appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-ms-track {
+  -ms-track: none;
+  height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
+  border: solid 1px #ccc;
+  border-radius: 1rem;
+  margin-top: -0.6rem;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  border: solid 1px rgb(144, 211, 255);
+}
+
+input[type="range"]::-moz-range-thumb {
+  -moz-appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
+  border: solid 1px #ccc;
+  border-radius: 1rem;
+  margin-top: -0.6rem;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb:active {
+  border: solid 1px rgb(144, 211, 255);
+}
+
+input[type="range"]::-ms-thumb {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
+  border: solid 1px #ccc;
+  border-radius: 1rem;
+  margin-top: -0.6rem;
+  pointer-events: auto;
+}
+input[type="range"]::-ms-thumb:active {
+  border: solid 1px rgb(144, 211, 255);
+}
+button.slick-arrow::before {
+  font-size: 50px !important;
+  color: yellow !important;
+}
+
+.slick-next {
+  right: 35px !important;
+  top: 45% !important;
+
+}
+
+.slick-prev {
+  left: 5px !important;
+  z-index: 10 !important;
+  top: 45% !important;
+
+}
+
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+}
+
+
+
+/* test :v */
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  white-space: normal;
+}
+.text-vip2 {
+  color: var(--color-vip2) !important;
+}
+
+:root {
+  --color-link: #1366de;
+  --color-blue: #0f59ca;
+  --color-red: #E51F40;
+  --color-black: #000;
+  --color-price: #068906;
+  --color-green: #068906;
+  --color-green-subtle: #9bdc9e;
+  --color-orange: #FF5723;
+  --color-pink: #ff74a3;
+  --color-purple: purple;
+  --color-mediumpurple: mediumpurple;
+  --color-darkcyan: darkcyan;
+  --color-yellow: #FFCE3F;
+  --color-yellow-subtle: #ffce3f7a;
+  --color-gray: #f4f4f4;
+  --color-vipnoibat: #e41b23;
+  --color-vip1: #de178d;
+  --color-vip2: #ff6600;
+  --color-vip3: #3763e0;
+  --color-tinthuong: #055699;
+  --bs-success-rgb: 76, 175, 80;
+  --bs-warning-bg-subtle: #fffae8;
+}
+
+.star.star-4 {
+  width: 48px;
+  height: 12px;
+}
+
+.star {
+  width: 12px;
+  height: 12px;
+  background: url(https://phongtro123.com/images/bi-star-fill-yellow.svg) left center repeat-x;
+  background-size: 12px 12px;
+  display: inline-block;
+  margin-right: 3px;
+}
