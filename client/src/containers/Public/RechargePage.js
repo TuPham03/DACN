@@ -109,25 +109,36 @@ const RechargePage = () => {
 
           {/* Nhập số tiền */}
           <div className="mb-6">
-            <h2 className="text-lg font-bold mb-2">Nhập số tiền cần nạp</h2>
-            <input
-              type="number"
-              min="50000"
-              step="10000"
-              placeholder="Nhập số tiền (tối thiểu 50,000)"
-              value={selectedAmount}
-              onChange={handleAmountChange}
-              className="w-full p-3 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <div className="mt-2 text-sm text-gray-500">
-              Số tiền bạn nhập:{" "}
-              <span className="text-blue-700 font-semibold">
-                {selectedAmount
-                  ? `${parseInt(selectedAmount).toLocaleString("vi-VN")} VND`
-                  : "0 VND"}
-              </span>
-            </div>
-          </div>
+  <h2 className="text-lg font-bold mb-2">Nhập số tiền cần nạp</h2>
+  <input
+    type="text" // Chuyển về text để kiểm soát đầu vào tốt hơn
+    placeholder="Nhập số tiền (tối thiểu 50,000)"
+    value={selectedAmount}
+    onChange={(e) => {
+      const value = e.target.value.replace(/[^0-9]/g, ""); // Loại bỏ ký tự không phải số
+      setSelectedAmount(value); // Cập nhật giá trị hợp lệ
+    }}
+    onKeyDown={(e) => {
+      const invalidKeys = ["e", "E", "+", "-", ".", ","];
+      if (invalidKeys.includes(e.key)) e.preventDefault(); // Chặn phím không hợp lệ
+    }}
+    className="w-full p-3 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+  <div className="mt-2 text-sm text-gray-500">
+    Số tiền bạn nhập:{" "}
+    <span className="text-blue-700 font-semibold">
+      {selectedAmount
+        ? `${parseInt(selectedAmount, 10).toLocaleString("vi-VN")} VND`
+        : "0 VND"}
+    </span>
+  </div>
+  {selectedAmount !== "" && selectedAmount < 50000 && (
+    <div className="mt-2 text-sm text-red-500">
+      Vui lòng nhập số tiền tối thiểu là 50,000 VND.
+    </div>
+  )}
+</div>
+
 
           {/* Danh sách phương thức nạp tiền */}
           <div>
