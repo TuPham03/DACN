@@ -1,25 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { isAction } from "redux";
-import { formatVietnameseToString } from "../../ultils/Common/formatVietnameseToString";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from '../../store/actions';
-import {path} from '../../ultils/constant'
-
+import { path } from '../../ultils/constant';
+import { formatVietnameseToString } from "../../ultils/Common/formatVietnameseToString";
 
 const notActive =
   "hover:bg-secondary2 px-4 h-full flex items-center bg-secondary1";
 const active =
-  "hover:bg-secondary2 px-4 h-full flex items-center  bg-secondary2";
+  "hover:bg-secondary2 px-4 h-full flex items-center bg-secondary2";
 
 const Navigation = ({ isAdmin }) => {
-
   const dispatch = useDispatch();
-
-  const { categories } = useSelector(state => state.app)
+  const { categories } = useSelector(state => state.app);
 
   useEffect(() => {
-    dispatch(actions.getCategories())
+    dispatch(actions.getCategories());
   }, []);
 
   return (
@@ -32,27 +28,32 @@ const Navigation = ({ isAdmin }) => {
           Trang chủ
         </NavLink>
         {categories?.length > 0 &&
-          categories.map((item) => {
-            return (
-              <div
-                key={item.code}
-                className="h-full flex justify-center items-center"
+          categories.map((item) => (
+            <div
+              key={item.code}
+              className="h-full flex justify-center items-center"
+            >
+              <NavLink
+                to={`/${formatVietnameseToString(item.value)}`}
+                className={({ isActive }) => (isActive ? active : notActive)}
               >
-                <NavLink
-                  to={`/${formatVietnameseToString(item.value)}`}
-                  className={({ isActive }) => (isActive ? active : notActive)}
-                >
-                  {item.value}
-                </NavLink>
-              </div>
-            );
-          })}
-           <NavLink
+                {item.value}
+              </NavLink>
+            </div>
+          ))}
+        <NavLink
           to={path.CONTACT}
           className={({ isActive }) => (isActive ? active : notActive)}
         >
           Liên hệ
         </NavLink>
+        <NavLink
+  to={path.RECHARGE}
+  className={({ isActive }) => (isActive ? active : notActive)}
+>
+  Nạp tiền
+</NavLink>
+
       </div>
     </div>
   );
