@@ -9,7 +9,7 @@ import { blobToBase64 } from '../../ultils/Common/tobase64';
 
 const activeStyle = 'hover:bg-gray-200 flex  rounded-md items-center gap-2 py-2 font-bold bg-gray-200'
 const notActiceStyle = 'hover:bg-gray-200 flex  rounded-md items-center gap-2 py-2 cursor-pointer'
-
+// console.log(menuSidebar)
 const SideBar = () => {
 
     const dispatch = useDispatch()

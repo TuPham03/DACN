@@ -23,8 +23,24 @@ export const getPostsService = () =>
             as: "user",
             attributes: ["name", "zalo", "phone", "fbUrl"], // Thêm fbUrl
           },
+
+          {
+            model: db.VipCost,
+            as : "vipCost",
+            attributes: ["id", "top", "html", "name"],
+           
+          },
+
+          { model: db.Overview, as: "overviews" },
+          {
+            model: db.Label,
+            as: "labelData",
+            attributes: { exclude: ["createdAt", "updatedAt"] },
+          },
         ],
-        attributes: ["id", "title", "star", "address", "description"],
+        attributes: ["id", "title", "star", "address", "description", "vipCost_time", "createdAt"],
+        order: [[{ model: db.VipCost, as: "vipCost" }, "top", "DESC"],
+            ["createdAt","DESC"]]
       });
       resolve({
         err: response ? 0 : 1,

@@ -13,6 +13,7 @@ import { CreatePost, System, ManagePost, EditAccount } from "./containers/System
 import * as actions from './store/actions'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import ManageAllAccount from "./containers/System/ManageAllAccount";
 
 function App() {
 
@@ -54,6 +55,7 @@ function App() {
           <Route path={path.CREATE_POST} element={<CreatePost />} />
           <Route path={path.MANAGE_POST} element={<ManagePost />} />
           <Route path={path.EDIT_ACCOUNT} element={<EditAccount />} />
+          <Route path={path.MANAGE_ALL_ACCOUNT} element={<ManageAllAccount />} />
         </Route>
       </Routes>
     </div>
