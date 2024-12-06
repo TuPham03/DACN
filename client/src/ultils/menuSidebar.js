@@ -26,6 +26,12 @@ const memuSidebar = [
         text: 'Liên hệ',
         path: '/lien-he',
         icon: <BiUserPin />
+    },
+    {
+        id: 6,
+        text: 'Quản lí tất cả bài đăng',
+        path: '/he-thong/quan-li-tat-ca-bai-dang',
+        icon: <BiUserPin />
     }
 ]
 

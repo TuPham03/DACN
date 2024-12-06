@@ -17,6 +17,7 @@ export const path = {
   CONTACT: "lien-he",
   DETAIL: "/chi-tiet/",
   DETAIL_ALL: "chi-tiet/*",
+  MANAGE_ALL_ACCOUNT: "quan-li-tat-ca-bai-dang"
 };
 
 export const text = {
